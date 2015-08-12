@@ -9,10 +9,11 @@
 <h3>Add a new vehicle</h3>
 <form action="/vehicles" method="post">
   <input id="dealership_id" name="dealership_id" type="hidden" value="<%= @dealership.id() %>">
-  <div class="form-group">
-    <label for="make">Make:</label>
-    <input type="text" name="make" class="form-control">
-  </div>
+  <select name="make" class="form-control">
+      <% @car_manufacturers.each() do |make| %>
+      <option><%= make %></option>
+      <% end %>
+  </select>
   <div class="form-group">
     <label for="model">Model:</label>
     <input type="text" name="model" class="form-control">
@@ -22,6 +23,5 @@
     <input type="text" name="year" class="form-control">
   </div>
   <button type="submit" class="btn-danger">Submit</button>
+  <a href="/">Go back</a>
 </form>
-
-<a href="/">Go back</a>
