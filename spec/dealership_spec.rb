@@ -9,5 +9,10 @@ describe('Dealership') do
       expect(test_dealership.name).to(eq('Bob Auto'))
     end
   end
+  describe('.all') do
+    it('returns all of the dealerships') do
+      expect(Dealership.all()).to(eq([]))
+    end
+  end
 
 end
