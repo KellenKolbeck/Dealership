@@ -17,11 +17,13 @@ post('/dealerships') do
   new_dealership = Dealership.new(params.fetch('dealership_name'))
   new_dealership.save()
   @dealerships = Dealership.all()
-  erb(:success)
+  @dealership_list = Dealership.all()
+  erb(:index)
 end
 
 get('/dealership/:id') do
   @dealership = Dealership.find(params.fetch('id').to_i())
+  @car_manufacturers = ["Audi", "GMC", "Chevrolet", "Ford"]
   erb(:dealership)
 end
 
@@ -34,5 +36,6 @@ post('/vehicles') do
   @new_vehicle.save()
   @dealership = Dealership.find(params.fetch('dealership_id').to_i())
   @dealership.save_vehicle(@new_vehicle)
-  erb(:success)
+  @car_manufacturers = ["Audi", "GMC", "Chevrolet", "Ford"]
+  erb(:dealership)
 end
