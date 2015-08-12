@@ -28,4 +28,12 @@ describe('Dealership') do
       expect(Dealership.all()).to(eq([]))
     end
   end
+  describe('#save_vehicle') do
+    it('puts vehicles into dealerships') do
+      test_dealership = Dealership.new('Bob Auto')
+      new_vehicle = Vehicle.new('Toyota', 'Prius', '2011')
+      test_dealership.save_vehicle(new_vehicle)
+      expect(test_dealership.show_cars).to(eq([new_vehicle]))
+    end
+  end
 end
