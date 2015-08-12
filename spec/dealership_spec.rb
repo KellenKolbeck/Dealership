@@ -20,5 +20,12 @@ describe('Dealership') do
       expect(test_dealership.save()).to(eq([test_dealership]))
     end
   end
-
+  describe('.clear') do
+    it('clears all of the dealerships out of @@dealership') do
+      test_dealership = Dealership.new('Bob Auto')
+      test_dealership.save()
+      Dealership.clear()
+      expect(Dealership.all()).to(eq([]))
+    end
+  end
 end
