@@ -40,6 +40,11 @@ describe('Vehicle') do
       expect(Vehicle.all()).to(eq([]))
     end
   end
-
-
+  describe('.find') do
+    it('finds a vehicle from a dealership') do
+      new_vehicle_1  = Vehicle.new('Toyota', 'Prius' , '2001')
+      new_vehicle_2  = Vehicle.new('Toyota', 'Camry', '2001')
+      new_vehicle_1.save()
+      new_vehicle_2.save()
+      expect(Vehicle.find(new_vehicle_1.id())).to(eq(new_vehicle_1))
 end

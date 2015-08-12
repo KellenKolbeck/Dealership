@@ -3,6 +3,7 @@ require('vehicle')
 require('dealership')
 
 describe('Dealership') do
+
   describe('#name') do
     it('returns the name of the dealership') do
       test_dealership = Dealership.new('Bob Auto')
@@ -33,7 +34,16 @@ describe('Dealership') do
       test_dealership = Dealership.new('Bob Auto')
       new_vehicle = Vehicle.new('Toyota', 'Prius', '2011')
       test_dealership.save_vehicle(new_vehicle)
-      expect(test_dealership.show_cars).to(eq([new_vehicle]))
+      expect(test_dealership.show_vehicles).to(eq([new_vehicle]))
+    end
+  end
+  describe('.find') do
+    it('finds a dealership based on an id') do
+      test_dealership_1 = Dealership.new("Bob's Auto's")
+      test_dealership_1.save()
+      test_dealership_2 = Dealership.new("Fred's Used Car Emporium")
+      test_dealership_2.save()
+      expect(Dealership.find(test_dealership_2.id())).to(eq(test_dealership_2))
     end
   end
 end

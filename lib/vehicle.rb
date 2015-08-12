@@ -5,6 +5,7 @@ class Vehicle
     @make = make
     @model = model
     @year = year
+    @id = @@vehicle_list.length() + 1
   end
 
   define_method(:make) do
@@ -31,4 +32,16 @@ class Vehicle
     @@vehicle_list = []
   end
 
+  define_method(:id) do
+    @id
+  end
+
+  define_singleton_method(:find) do |id|
+    @@vehicle_list.each() do |vehicle|
+      if vehicle.id == id
+        return vehicle
+      end
+    end
+    return nil
+  end    
 end
