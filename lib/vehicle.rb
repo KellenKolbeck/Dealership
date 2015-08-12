@@ -36,6 +36,10 @@ class Vehicle
     @id
   end
 
+  define_method(:unique_vehicle) do
+    "#{@make} #{@model} #{@year}"
+  end
+
   define_singleton_method(:find) do |id|
     @@vehicle_list.each() do |vehicle|
       if vehicle.id == id
@@ -43,5 +47,5 @@ class Vehicle
       end
     end
     return nil
-  end    
+  end
 end
