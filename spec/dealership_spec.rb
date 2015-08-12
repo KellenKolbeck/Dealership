@@ -14,5 +14,11 @@ describe('Dealership') do
       expect(Dealership.all()).to(eq([]))
     end
   end
+  describe('#save') do
+    it('saves the names of dealerships') do
+      test_dealership = Dealership.new('Bob Auto')
+      expect(test_dealership.save()).to(eq([test_dealership]))
+    end
+  end
 
 end
