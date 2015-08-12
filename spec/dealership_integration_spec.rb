@@ -9,6 +9,6 @@ describe('shows the homepage where dealerships are listed', {:type => :feature})
     visit('/')
     fill_in('dealership_name', :with => "Bob's Autos")
     click_button('Submit')
-    expect(page).to have_content("Bob's Autos")
+    expect(page).to have_content("You've successfully submitted a dealership")
   end
-end    
+end
