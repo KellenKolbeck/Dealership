@@ -47,4 +47,6 @@ describe('Vehicle') do
       new_vehicle_1.save()
       new_vehicle_2.save()
       expect(Vehicle.find(new_vehicle_1.id())).to(eq(new_vehicle_1))
+    end
+  end
 end
